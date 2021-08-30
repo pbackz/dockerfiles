@@ -1,0 +1,8 @@
+[package]
+name = "rustapp" # the name of the package
+version = "0.1.0"    # the current version, obeying semver
+authors = ["pbackz <pierre.baconnier@outlook.fr>"]
+edition = "2018"
+
+[dependencies]
+lipsum = "0.8"

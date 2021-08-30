@@ -28,12 +28,19 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/rust:1.0
       - name: Nushell custom image (for ebay-seller-bot) build and push
-        id: docker_build_nushell_custom
+        id: docker_build_ebay_seller_bot
         uses: docker/build-push-action@v2
         with:
           context: ./ebay-seller-bot
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/ebay-seller-bot:1.0
+      #- name: Nushell custom image (for Odds API controller) build and push
+      #  id: docker_build_odds_api_ctl
+      #  uses: docker/build-push-action@v2
+      #  with:
+      #    context: ./odds-api-ctl
+      #    push: true
+      #    tags: ${{ secrets.DOCKERHUB_USERNAME }}/odds-api-ctl:1.0
       - name: Blackarch custom image build and push
         id: docker_build_blackarch_custom
         uses: docker/build-push-action@v2

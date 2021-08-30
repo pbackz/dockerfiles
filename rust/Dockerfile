@@ -1,6 +1,7 @@
+# tested currently with rust:1.40
 FROM rust:latest as builder
 LABEL MAINTAINER="pbackz pierre.baconnier@outlook.fr"
-LABEL REPOSITORY="https://github.com/pbackz/dockerfiles/rustapp"
+LABEL REPOSITORY="https://github.com/pbackz/dockerfiles"
 
 ENV APP="rustapp"
 RUN USER=root cargo new --bin ${APP}
@@ -23,7 +24,7 @@ RUN apt-get update && \
     cp /usr/share/zoneinfo/Europe/Paris /etc/localtime && \
     groupadd $USER && \
     useradd -g ${USER} ${USER} && \
-    mkdir -p ${APP_WD} && \
+    mkdir -p ${APP_WD} && \-
     chown -R ${USER}:${USER} ${APP_WD}
     
 COPY --from=builder /usr/local/cargo/bin/${APP} /usr/local/bin/${APP}
